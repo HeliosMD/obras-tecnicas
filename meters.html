@@ -1,0 +1,68 @@
+<!--Helios Martinez Dominguez (L) Copyleft 2025-->
+<!--Title: "Meters".-->
+<!--Technic: JavaScript & Processing over Web Browser.-->
+<!--Year: 2025.-->
+
+
+<body bgcolor="#808080" text="#FFFFFF" link="#777777" vlink="#777777"><center><br/><br/>
+<script>
+var sw = screen.width - 15;
+var sh = screen.height - 245;
+
+var cx = sw / 2;
+var cy = sh / 2;
+</script>
+<div class="content"><div class="graphic">
+<script type="application/processing">
+int n=sw;		//screen width
+int m=sh;		//screen height
+int c=16;		//channels
+int db=144;		//decibels
+int a=(m-(m*0.02))/db;	//audio scale
+int s=n/c/2;		//channels scale
+void setup()
+{
+	size(n,m);
+	frameRate(30);
+}
+
+void draw()
+{
+	background(128);
+	for(int k=0; k<n; k+=s)
+	{
+		stroke(16);
+		int r=random(0,db);
+		for(int l=0; l<m-20; l+=a)
+		{
+			if(l<(m-20)-(r*a))
+    			{
+				fill(0,255,0);
+				if(l>(m-20)-(12*a)){fill(255,192,0);}
+				if(l>(m-20)-a){fill(255,0,0);}
+			}
+			if(l>(m-20)-(r*a))
+			{
+				fill(0,128,0);
+				if(l>(m-20)-(12*a)){fill(128,64,0);}
+				if(l>(m-20)-a){fill(128,0,0);}
+			}
+			rect(k,m-l,s-30,a-2);
+		}
+		for(int o=0; o<=db; o+=6)
+		{
+			fill(16);
+			textSize(10);
+			text(-1*o,k+s-25,o*a+(m*0.02));
+		}
+	}
+	for(int p=0; p<c*2; p++)
+	{
+		fill(255);
+		text(p+1,p*s+5,10);
+	}
+}
+</script>
+<canvas style="image-rendering: -moz-crisp-edges ! important;" id="__processing0" tabindex="0" width=sw height=sh ></canvas>
+</div></div></center>
+<script src="processing.js" type="text/javascript"></script>	

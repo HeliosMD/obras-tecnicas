@@ -1,0 +1,57 @@
+<!--Helios Martinez Dominguez (L) Copyleft 2025-->
+<!--Title: "Waveform".-->
+<!--Technic: JavaScript & Processing over Web Browser.-->
+<!--Year: 2025.-->
+
+
+<body bgcolor="#100802" text="#FFFFFF" link="#777777" vlink="#777777"><center><br/><br/>
+<script>
+var sw = screen.width - 15;
+var sh = screen.height - 245;
+
+var cx = sw / 2;
+var cy = sh / 2;
+</script>
+<div class="content"><div class="graphic">
+<script type="application/processing">
+int n=sw;		//screen width
+int m=sh;		//screen height
+float i=0;
+int r=random(0,100);
+int g=random(0,100);
+int b=random(0,255);
+
+void setup()
+{
+	size(n,m);
+	background(16,8,2);
+	strokeWeight(1);
+}
+
+void draw()
+{
+	i=i+1;
+	r=r+random(-5,5);
+	if(r>255){r=255;}
+	if(r<0){r=0;}
+	g=g+random(-5,5);
+	if(g>255){g=255;}
+	if(g<0){g=0;}
+	//b=b+random(-5,5);
+	if(i==n){i=1;background(16,8,2);}
+	stroke(128,16,16);
+	line(0,m/4,n,m/4);
+	stroke(r,g,b);
+	line(i,m/4,i,m/4+sin(i/random(1,20))*m/8+random(-20,20));
+	stroke(16,128,128);
+	line(0,3*m/4,n,3*m/4);
+	stroke(r,g,b);
+	line(i,3*m/4,i,3*m/4+sin(i/random(1,20))*m/8+random(-20,20));
+}
+
+</script>
+
+<canvas style="image-rendering: -moz-crisp-edges ! important;" id="__processing0" tabindex="0" width=sw height=sh ></canvas>
+</div></div></center>
+<script src="processing.js" type="text/javascript"></script>
+	

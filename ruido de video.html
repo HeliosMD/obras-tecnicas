@@ -1,0 +1,54 @@
+<!--Helios Martinez Dominguez (L) Copyleft 2025-->
+<!--Title: "Ruido de Video".-->
+<!--Technic: JavaScript & Processing over Web Browser.-->
+<!--Year: 2025.-->
+
+
+<body bgcolor="#100802" text="#FFFFFF" link="#777777" vlink="#777777"><center><br/><br/>
+<script>
+var sw = screen.width - 15;
+var sh = screen.height - 245;
+
+var cx = sw / 2;
+var cy = sh / 2;
+</script>
+<div class="content"><div class="graphic">
+<script type="application/processing">
+int n=sw;		//screen width
+int m=sh;		//screen height
+int i=0;
+int x=1;
+int y=1;
+
+void setup()
+{
+	size(n,m);
+	strokeWeight(1);
+}
+
+void draw()
+{
+	i=i+1;
+	background(16,8,2);
+	x=x+random(-1,1);
+	if(x>=n){x=1;}
+	if(x<=0){x=n;}
+	y=y+random(-1,1);
+	if(y>=m){y=1;}
+	if(y<=0){y=m;}
+	stroke(255);
+	for(int k=0; k<480; k++)
+	{
+		point(random(-1*x,x),m/480*k+y);
+	}
+	for(int k=0; k<n; k++)
+	{
+		point(k,random(random(2,5),random(20,125)));
+	}
+}
+</script>
+<canvas style="image-rendering: -moz-crisp-edges ! important;" id="__processing0" tabindex="0" width=sw height=sh ></canvas>
+</div></div></center>
+
+
+<script src="processing.js" type="text/javascript"></script>	

@@ -1,0 +1,77 @@
+<!--Helios Martinez Dominguez (L) Copyleft 2025-->
+<!--Title: "Connections".-->
+<!--Technic: JavaScript & Processing over Web Browser.-->
+<!--Year: 2025.-->
+
+
+<body bgcolor="#100000" text="#FFFFFF" link="#777777" vlink="#777777"><center><br/><br/>
+<script>
+var sw = screen.width - 15;
+var sh = screen.height - 245;
+
+var cx = sw / 2;
+var cy = sh / 2;
+</script>
+<div class="content"><div class="graphic">
+<script type="application/processing">
+int n=sw;		//JavaScript Provided screen width
+int m=sh;		//JavaScript Provided screen height
+float i=0;
+int os=0; //n/7;	//offset (x_coordinate_offset)
+int x1=n/2+os;
+int y1=m/2;
+int c=16;		//PHP Provided (conections_number)        ***NOT IMPLEMENTED***
+int s=m/3;		//Configuration File Provided size        ***NOT IMPLEMENTED***
+string ip="192.168.0.";	//PHP Provided IP array                   ***NOT IMPLEMENTED***
+int p=10;		//PHP Provided ports_number array [ip]    ***NOT IMPLEMENTED***
+int port=80;		//PHP Provided Ports array [ip]           ***NOT IMPLEMENTED***
+int t=0;
+
+void setup()
+{
+	size(n,m);
+	background(16,0,0);
+	text("255.255.0.0",x1+10,y1);
+	text("192.168.0.1",x1+10,y1+10);
+	text("B",x1+10,y1+20);
+	noLoop();
+}
+
+void draw()
+{
+	for(i=i+2*PI/c+random(-1*PI/32,PI/32); t<c; i=i+2*PI/c+random(-1*PI/32,PI/32))
+	{
+		t=t+1;
+		strokeWeight(1);
+		x2=os+n/2+sin(i)*s;
+		y2=m/2-cos(i)*s;
+		stroke(255);
+		ellipse(x1,y1,15,15);
+		line(x1,y1,x2,y2);
+		fill(255);
+		ellipse(x2,y2,5,5);
+		text("255.255.255.0",x2+25,y2);
+		text(ip+(t+1),x2+25,y2+10);
+		text("C",x2+25,y2+20);
+		int j=0;
+		for(int l=0; l<p; l++)
+		{
+			j=j+2*PI/p+random(-1*PI/32,PI/32)
+			strokeWeight(0.5);
+			int x3=x2+sin(j)*s/4;
+			int y3=y2+cos(j)*s/4;
+			stroke(255);
+			ellipse(x2,y2,10,10);
+			line(x2,y2,x3,y3);
+			fill(255);
+			ellipse(x3,y3,5,5);
+			text(":"+port,x3+5,y3);
+		}
+	}
+}
+</script>
+
+<canvas style="image-rendering: -moz-crisp-edges ! important;" id="__processing0" tabindex="0" width=sw height=sh ></canvas>
+</div></div></center>
+<script src="processing.js" type="text/javascript"></script>
+	
