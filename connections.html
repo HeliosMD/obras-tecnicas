@@ -8,7 +8,7 @@
 <script>
 var sw = screen.width - 15;
 var sh = screen.height - 245;
-
+var pro = sw / sh;
 var cx = sw / 2;
 var cy = sh / 2;
 </script>
@@ -22,6 +22,7 @@ int x1=n/2+os;
 int y1=m/2;
 int c=16;		//PHP Provided (conections_number)        ***NOT IMPLEMENTED***
 int s=m/3;		//Configuration File Provided size        ***NOT IMPLEMENTED***
+if(pro>1){s=m/3;}else{s=n/3;}
 string ip="192.168.0.";	//PHP Provided IP array                   ***NOT IMPLEMENTED***
 int p=10;		//PHP Provided ports_number array [ip]    ***NOT IMPLEMENTED***
 int port=80;		//PHP Provided Ports array [ip]           ***NOT IMPLEMENTED***
@@ -76,3 +77,4 @@ void draw()
 <script src="processing.js" type="text/javascript"></script>
 
 	
+
