@@ -18,6 +18,7 @@ int n=sw;		//screen width
 int m=sh;		//screen height
 int c=16;		//channels
 if(pro<1){c=8;}
+if(sw<=320){c=4;}
 int db=144;		//decibels
 if(pro<1){db=96;}
 int a=(m-(m*0.02))/db;	//audio scale
@@ -69,4 +70,5 @@ void draw()
 </div></div></center>
 
 <script src="processing.js" type="text/javascript"></script>	
+
 
